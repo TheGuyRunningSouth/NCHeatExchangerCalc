@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QValidator>
+#include <float.h>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,6 +9,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->coolantPerRecipeLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->coolantHeatMultiplierLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->msrBaseCoolingRateLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->msrCoolingEfficiencyLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->numHeatersLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->coolantTubeConductivityLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->waterBaseCoolingProvidedLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->waterBaseHeatingRequiredLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->exhaustSteamTubeConductivityLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->lQSteamCondenserConductivityLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->lQSteamCondenserSurroundingTempLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->condensateWaterTubeConductivityLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+    ui->waterTubeConductivityLineEdit->setValidator(new QDoubleValidator(0, FLT_MAX, 15, this));
+
 }
 
 MainWindow::~MainWindow()
